@@ -11,14 +11,14 @@
 
 uint8_t ledPin = 16;
 uint32_t frequency = 1000; // Hz
-uint8_t dutyCycle = 10; // 50% duty cycle (0-255)
+uint8_t dutyCycle = 127; // 50% duty cycle (0-255)
 
 void setup() {
   pinMode(ledPin, OUTPUT);
 }
 
 void loop() {
-  uint32_t onTime = (dutyCycle / UINT8_MAX) * frequency;
+  uint32_t onTime = ((float) dutyCycle / UINT8_MAX) * frequency;
   uint32_t offTime = frequency - onTime;
 
   digitalWrite(ledPin, HIGH);
