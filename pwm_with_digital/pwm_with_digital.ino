@@ -9,17 +9,17 @@
  * In normal C code, we could use "#include <stdint.h>" to get the same effect. 
  */
 
-int ledPin = 16;
-int frequency = 1000; // Hz
-int dutyCycle = 128; // 50% duty cycle
+uint8_t ledPin = 16;
+uint32_t frequency = 1000; // Hz
+uint8_t dutyCycle = 10; // 50% duty cycle (0-255)
 
 void setup() {
   pinMode(ledPin, OUTPUT);
 }
 
 void loop() {
-  int onTime = (dutyCycle * 1000) / frequency;
-  int offTime = 1000 - onTime;
+  uint32_t onTime = (dutyCycle / UINT8_MAX) * frequency;
+  uint32_t offTime = frequency - onTime;
 
   digitalWrite(ledPin, HIGH);
   delayMicroseconds(onTime);
