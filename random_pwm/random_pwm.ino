@@ -14,18 +14,11 @@ const uint32_t delayAmount = 15;
 
 void setup() {
   pinMode(ledPin, OUTPUT);
+  randomSeed(analogRead(0));  // seed random number
 }
 
 void loop() {
-  // LED turns on slowly
-  for (uint8_t value = 0; value <= 255; value++) {
-    analogWrite(ledPin, value); // writes a value from 
-    delay(delayAmount);
-  }
-
-  // LED turns off slowly
-  for (uint8_t value = 255; value >= 0; value--) {
-    analogWrite(ledPin, value);
-    delay(delayAmount);
-  }
+  long value = random(0, 255);
+  analogWrite(ledPin, value);  // writes a random value
+  delay(delayAmount);
 }

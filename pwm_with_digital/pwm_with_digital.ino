@@ -9,23 +9,20 @@
  * In normal C code, we could use "#include <stdint.h>" to get the same effect. 
  */
 
-const uint8_t ledPin = 16;  // GPIO 16 for LED
-const uint32_t delayAmount = 15;
+int ledPin = 16;
+int frequency = 1000; // Hz
+int dutyCycle = 128; // 50% duty cycle
 
 void setup() {
   pinMode(ledPin, OUTPUT);
 }
 
 void loop() {
-  // LED turns on slowly
-  for (uint8_t value = 0; value <= 255; value++) {
-    analogWrite(ledPin, value); // writes a value from 
-    delay(delayAmount);
-  }
+  int onTime = (dutyCycle * 1000) / frequency;
+  int offTime = 1000 - onTime;
 
-  // LED turns off slowly
-  for (uint8_t value = 255; value >= 0; value--) {
-    analogWrite(ledPin, value);
-    delay(delayAmount);
-  }
+  digitalWrite(ledPin, HIGH);
+  delayMicroseconds(onTime);
+  digitalWrite(ledPin, LOW);
+  delayMicroseconds(offTime);
 }
