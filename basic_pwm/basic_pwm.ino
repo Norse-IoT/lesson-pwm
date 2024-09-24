@@ -18,7 +18,7 @@ void setup() {
 
 void loop() {
   // LED turns on slowly
-  for (uint8_t value = 0; value <= 255; value++) {
+  for (uint8_t value = 0; value < 255; value++) {
     analogWrite(ledPin, value); // writes a value from 
     delay(delayAmount);
   }
