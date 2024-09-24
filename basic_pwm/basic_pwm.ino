@@ -24,7 +24,7 @@ void loop() {
   }
 
   // LED turns off slowly
-  for (uint8_t value = 255; value >= 0; value--) {
+  for (uint8_t value = 255; value > 0; value--) {
     analogWrite(ledPin, value);
     delay(delayAmount);
   }
