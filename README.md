@@ -8,6 +8,5 @@ For this lesson, you will need:
 3. a wire
 4. an ESP32
 
-![image](https://github.com/user-attachments/assets/730b0dc0-1b90-44cb-8b6a-d05586b813bf)
-
+![image](https://github.com/user-attachments/assets/64750862-320e-495f-bad2-a6be379b60a2)
 
